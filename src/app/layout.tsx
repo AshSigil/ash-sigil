@@ -9,17 +9,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="fixed top-0 left-0 right-0 z-10 bg-black/40 backdrop-blur-sm border-b border-amber-900/10">
           <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
             {/* Сигил слева */}
-            <div className="w-10 h-10 flex items-center justify-center">
+            <div className="w-100 h-100 flex items-center justify-center">
               <img
                 src="/assets/ash-sigil.png"
                 alt="Ash Sigil"
-                className="w-full h-full opacity-80 sigil-header"
+                className="w-100 h-100 opacity-80 sigil-header"
               />
             </div>
 
             {/* Навигация справа */}
             <nav className="text-xs opacity-50 hover:opacity-90 transition flex gap-6">
-              <Link href="/" className="hover:underline">/root</Link>
+              
               <Link href="/lore" className="hover:underline">/lore</Link>
               <Link href="/relics" className="hover:underline">/relics</Link>
             </nav>
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16">{children}</main>
 
         {/* Эффект цифровой плёнки */}
-        <div className="film-overlay" />
+      
       </body>
     </html>
   );

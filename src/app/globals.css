@@ -10,7 +10,8 @@
 }
 
 body {
-  background: linear-gradient(145deg, var(--ash-bg) 0%, var(--ash-warm) 100%);
+  background: url('/assets/background.jpg') center/cover no-repeat fixed;
+  background-color: var(--ash-bg);
   color: var(--ash-text);
   font-family: ui-monospace, monospace;
   margin: 0;
@@ -19,6 +20,7 @@ body {
 
 .flicker {
   animation: flicker 0.12s infinite alternate;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes flicker {
@@ -26,44 +28,21 @@ body {
   100% { opacity: 1; }
 }
 
-.film-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-  button, a {
+
+
+/* Глобальные стили для ссылок и кнопок */
+a, button {
   font-family: ui-monospace, monospace;
   text-decoration: none;
   outline: none;
 }
 
-button:hover, a:hover {
+a:hover, button:hover {
   text-decoration: underline;
 }
-body {
-  background: url('/assets/background.jpg') center/cover no-repeat fixed;
-  background-color: #0a0806; /* fallback */
-  color: #e0c8a0;
-  font-family: ui-monospace, monospace;
-  margin: 0;
-  overflow-x: hidden;
-}
-.sigil-glow {
-  filter: drop-shadow(0 0 8px rgba(201, 168, 122, 0.4))
-         drop-shadow(0 0 16px rgba(201, 168, 122, 0.2));
-  animation: subtle-flicker 3s infinite alternate;
-}
 
-@keyframes subtle-flicker {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 0.95; filter: drop-shadow(0 0 10px rgba(201, 168, 122, 0.5)); }
-}
-.sigil-header {
-  filter: drop-shadow(0 0 4px rgba(201, 168, 122, 0.3));
+/* 🔥 ИСПРАВЛЕНИЕ: Запрещаем отражение */
+.sigil-header::after,
+.sigil-header::before {
+  display: none !important;
 }
