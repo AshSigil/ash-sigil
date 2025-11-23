@@ -3,7 +3,14 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 flicker">
-      <div className="w-24 h-24 rounded-full border border-amber-800/30 mb-10" />
+      {<img src="/assets/ash-sigil.png" alt="Ash Sigil" />}
+      <div className="mb-10 w-32 h-32 flex items-center justify-center">
+        <img
+          src="/assets/ash-sigil.png"
+          alt="Ash Sigil"
+          className="max-w-full max-h-full opacity-90"
+        />
+      </div>
 
       <div className="space-y-4">
         <Link

@@ -46,3 +46,24 @@ body {
 button:hover, a:hover {
   text-decoration: underline;
 }
+body {
+  background: url('/assets/background.jpg') center/cover no-repeat fixed;
+  background-color: #0a0806; /* fallback */
+  color: #e0c8a0;
+  font-family: ui-monospace, monospace;
+  margin: 0;
+  overflow-x: hidden;
+}
+.sigil-glow {
+  filter: drop-shadow(0 0 8px rgba(201, 168, 122, 0.4))
+         drop-shadow(0 0 16px rgba(201, 168, 122, 0.2));
+  animation: subtle-flicker 3s infinite alternate;
+}
+
+@keyframes subtle-flicker {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 10px rgba(201, 168, 122, 0.5)); }
+}
+.sigil-header {
+  filter: drop-shadow(0 0 4px rgba(201, 168, 122, 0.3));
+}
