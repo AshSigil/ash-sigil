@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import './globals.css';
 import Link from 'next/link';
 
@@ -6,17 +5,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="flicker relative">
-        {/* Верхняя панель */}
+        {/* Верхняя шапка с сигилом и навигацией */}
         <header className="fixed top-0 left-0 right-0 z-10 bg-black/40 backdrop-blur-sm border-b border-amber-900/10">
           <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-            
             {/* Сигил слева */}
             <div className="w-10 h-10 flex items-center justify-center">
               <img
-  src="/assets/ash-sigil.png"
-  alt="Ash Sigil"
-  className="w-full h-full opacity-80 sigil-header"
-/>
+                src="/assets/ash-sigil.png"
+                alt="Ash Sigil"
+                className="w-full h-full opacity-80 sigil-header"
+              />
             </div>
 
             {/* Навигация справа */}
@@ -28,10 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        {/* Основной контент с отступом сверху */}
+        {/* Основной контент с отступом под шапку */}
         <main className="pt-16">{children}</main>
 
-        {/* Фильм-оверлей (оставляем) */}
+        {/* Эффект цифровой плёнки */}
         <div className="film-overlay" />
       </body>
     </html>
