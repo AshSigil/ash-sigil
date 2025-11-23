@@ -1,21 +1,37 @@
+// src/app/layout.tsx
 import './globals.css';
 import Link from 'next/link';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="flicker">
-        {children}
+      <body className="flicker relative">
+        {/* Верхняя панель */}
+        <header className="fixed top-0 left-0 right-0 z-10 bg-black/40 backdrop-blur-sm border-b border-amber-900/10">
+          <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+            
+            {/* Сигил слева */}
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img
+  src="/assets/ash-sigil.png"
+  alt="Ash Sigil"
+  className="w-full h-full opacity-80 sigil-header"
+/>
+            </div>
 
-        {/* Навигация как архив */}
-        <nav className="fixed bottom-6 right-6 text-xs opacity-50 hover:opacity-40 transition">
-          <div className="flex flex-col items-end space-y-2">
-            <Link href="/" className="hover:underline">/root</Link>
-            <Link href="/lore" className="hover:underline">/lore</Link>
-            <Link href="/relics" className="hover:underline">/relics</Link>
+            {/* Навигация справа */}
+            <nav className="text-xs opacity-50 hover:opacity-90 transition flex gap-6">
+              <Link href="/" className="hover:underline">/root</Link>
+              <Link href="/lore" className="hover:underline">/lore</Link>
+              <Link href="/relics" className="hover:underline">/relics</Link>
+            </nav>
           </div>
-        </nav>
+        </header>
 
+        {/* Основной контент с отступом сверху */}
+        <main className="pt-16">{children}</main>
+
+        {/* Фильм-оверлей (оставляем) */}
         <div className="film-overlay" />
       </body>
     </html>
